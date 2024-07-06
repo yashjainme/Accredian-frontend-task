@@ -24,7 +24,7 @@ const ReferralModal = ({ isOpen, onClose, onReferralSubmit }) => {
       const config = {
         headers: { Authorization: `Bearer ${token}` }
       };
-      const response = await axios.post('http://localhost:5000/api/referrals/postreferral', formData, config);
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/referrals/postreferral`, formData, config);
       
       // Check if the response contains the referral data
       if (response.data && response.data.referralCode) {

@@ -25,7 +25,7 @@ const Signup = ({ setIsAuthenticated }) => {
   const completeReferral = async (token) => {
     if (formData.referralCode) {
       try {
-        await axios.post('http://localhost:5000/api/referrals/complete-referral', 
+        await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/referrals/complete-referral`, 
           { referralCode: formData.referralCode },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -41,7 +41,7 @@ const Signup = ({ setIsAuthenticated }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/users/register', formData);
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/users/register`, formData);
       localStorage.setItem('token', response.data.token);
       toast.success('Registration successful!');
       setIsAuthenticated(true);

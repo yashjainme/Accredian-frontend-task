@@ -17,7 +17,9 @@ const Login = ({ setIsAuthenticated }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/users/login', formData);
+      const backendUrl = process.env.REACT_APP_API_BASE_URL 
+      const response = await axios.post(`${backendUrl}/api/users/login`, formData);
+      console.log(backendUrl)
       localStorage.setItem('token', response.data.token);
       toast.success('Login successful!');
       setIsAuthenticated(true);

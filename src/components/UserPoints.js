@@ -17,8 +17,8 @@ const UserPoints = () => {
           setLoading(false);
           return;
         }
-        console.log('Sending token:', token);
-        const response = await axios.get('http://localhost:5000/api/users/points', {
+        
+        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/users/points`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setPoints(response.data.points);
