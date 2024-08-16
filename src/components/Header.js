@@ -12,7 +12,7 @@ const Header = ({ isAuthenticated, setIsAuthenticated }) => {
         <Link to="/" className="text-center md:text-left mb-4 md:mb-0">
           <h1 className="text-3xl font-bold text-indigo-800">Refer & Earn</h1>
         </Link>
-        <img src="/comp-logo.png" alt="Company Logo" className="h-12 w-auto mb-4 md:mb-0 md:ml-4" />
+       
         <nav className="flex flex-col md:flex-row items-center justify-center md:justify-end">
           {isAuthenticated ? (
             <button 
